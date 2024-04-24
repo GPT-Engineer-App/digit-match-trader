@@ -10,16 +10,16 @@ const Index = () => {
   const [expectedProfit, setExpectedProfit] = useState("");
 
   const handleTrade = () => {
-    console.log(`Starting trade on account: ${accountType}`);
-    let currentProfit = 0;
-    const targetProfit = parseFloat(expectedProfit);
-    while (currentProfit < targetProfit) {
-      console.log(`Placing trade on Volatility Index ${volatilityIndex} with trade amount ${tradeAmount}`);
-
-      currentProfit += parseFloat(tradeAmount);
-      console.log(`Current Profit: ${currentProfit}`);
-    }
-    console.log(`Target profit of ${targetProfit} achieved.`);
+    // This function would handle the trading logic
+    console.log({
+      accountType,
+      appId,
+      apiToken,
+      volatilityIndex,
+      tradeAmount,
+      expectedProfit,
+    });
+    // Connect to WebSocket and send these details
   };
 
   return (
