@@ -8,21 +8,18 @@ const Index = () => {
   const [volatilityIndex, setVolatilityIndex] = useState("10");
   const [tradeAmount, setTradeAmount] = useState("");
   const [expectedProfit, setExpectedProfit] = useState("");
-  const [buttonColor, setButtonColor] = useState("red");
 
   const handleTrade = () => {
-    // This function would handle the trading logic
-    setButtonColor("yellow");
-    console.log({
-      accountType,
-      appId,
-      apiToken,
-      volatilityIndex,
-      tradeAmount,
-      expectedProfit,
-    });
+    console.log(`Starting trade on account: ${accountType}`);
+    let currentProfit = 0;
+    const targetProfit = parseFloat(expectedProfit);
+    while (currentProfit < targetProfit) {
+      console.log(`Placing trade on Volatility Index ${volatilityIndex} with trade amount ${tradeAmount}`);
 
-    setTimeout(() => setButtonColor("blue"), 2000);
+      currentProfit += parseFloat(tradeAmount);
+      console.log(`Current Profit: ${currentProfit}`);
+    }
+    console.log(`Target profit of ${targetProfit} achieved.`);
   };
 
   return (
@@ -63,7 +60,7 @@ const Index = () => {
         <FormLabel>Expected Profit</FormLabel>
         <Input placeholder="Enter expected profit" type="number" value={expectedProfit} onChange={(e) => setExpectedProfit(e.target.value)} />
       </FormControl>
-      <Button colorScheme={buttonColor} onClick={handleTrade}>
+      <Button colorScheme="blue" onClick={handleTrade}>
         Start Trading
       </Button>
     </VStack>
