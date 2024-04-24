@@ -8,9 +8,11 @@ const Index = () => {
   const [volatilityIndex, setVolatilityIndex] = useState("10");
   const [tradeAmount, setTradeAmount] = useState("");
   const [expectedProfit, setExpectedProfit] = useState("");
+  const [buttonColor, setButtonColor] = useState("red");
 
   const handleTrade = () => {
     // This function would handle the trading logic
+    setButtonColor("yellow");
     console.log({
       accountType,
       appId,
@@ -19,7 +21,8 @@ const Index = () => {
       tradeAmount,
       expectedProfit,
     });
-    // Connect to WebSocket and send these details
+
+    setTimeout(() => setButtonColor("blue"), 2000);
   };
 
   return (
@@ -60,7 +63,7 @@ const Index = () => {
         <FormLabel>Expected Profit</FormLabel>
         <Input placeholder="Enter expected profit" type="number" value={expectedProfit} onChange={(e) => setExpectedProfit(e.target.value)} />
       </FormControl>
-      <Button colorScheme="blue" onClick={handleTrade}>
+      <Button colorScheme={buttonColor} onClick={handleTrade}>
         Start Trading
       </Button>
     </VStack>
