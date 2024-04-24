@@ -23,7 +23,7 @@ const Index = () => {
   };
 
   return (
-    <VStack spacing={4} p={5}>
+    <VStack spacing={4} p={5} bg="brand.900" minHeight="100vh">
       <Text fontSize="2xl" fontWeight="bold">
         Digit Match Trading App
       </Text>
